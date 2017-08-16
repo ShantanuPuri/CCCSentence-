@@ -30,6 +30,9 @@ public class ChargeInformationTable {
 		{
 		    listString += s + "; ";
 		}
+		if (listString.endsWith(";;")) {
+			listString = listString.replace(";;", ";"); 
+		}
 		return listString.replaceAll("[,]", "-"); 	
 	}
 	public String getStatutesString() {

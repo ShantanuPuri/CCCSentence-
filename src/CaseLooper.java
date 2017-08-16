@@ -11,7 +11,7 @@ public class CaseLooper {
 	private static final String NEW_LINE_SEPARATOR = "\n";
     private static final String FILE_HEADER = "original_caseid,scraped_caseid,casefound, + charges,"
     		+ "disposition,incarcerated,suspended,suspendedtext,sentence,"
-    		+ "minimum,maximum,sentencedtotext,minNo, minUnit, maxNo, maxUnit";
+    		+ "minimum,maximum,sentencedtotext,min, max";
 	private static TreeMap<Integer, String> refinedCaseNumbers;
 	private static SeleniumCCC seleniumInstance;
 
@@ -32,7 +32,7 @@ public class CaseLooper {
 		TreeMap<String,Case> Cases = new TreeMap<String,Case>();
 
 		// stores current directory 
-	    String fileName = "SentenceOutput2.csv"; 
+	    String fileName = "CCCmultlipleChargesOutput.csv"; 
 	    FileWriter fileWriter = null;
     	fileWriter = new FileWriter(fileName);
         
@@ -135,14 +135,6 @@ public class CaseLooper {
 	    		
 	    	// Min sentence units
 	    	fileWriter.append(currcase.getSentenceMax()+"");
-	    	fileWriter.append(COMMA_DELIMITER);
-	    		
-	    	// Max sentence number
-	    	fileWriter.append(currcase.getSentenceMinUnit());
-	    	fileWriter.append(COMMA_DELIMITER);
-	    		
-	    	// Max sentence units 
-	    	fileWriter.append(currcase.getSentenceMaxUnit());
 	    	fileWriter.append(COMMA_DELIMITER);
 	    		
 	    	fileWriter.append(NEW_LINE_SEPARATOR);

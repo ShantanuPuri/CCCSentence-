@@ -146,8 +146,6 @@ public class Sentence {
 		boolean isMinUnit, isMaxUnit;
 		String[] splitSentence;
 		String sentence = "";
-//		int testMax[] = {0, 0, 0, 0, 0, 0, 0};
-//		int j = 0;
 		
 		if (minSentenceText == "") {
 			sentence = sentenceAllText;
@@ -165,21 +163,20 @@ public class Sentence {
 							splitSentence[i + 2].compareTo("years") == 0 || splitSentence[i + 2].compareTo("Years") == 0;
 					if (isMinUnit) {
 						minUnit = splitSentence[i + 2];
+						System.out.println("Split Min Print: " + splitSentence[i + 1] + " " + splitSentence[i + 2]);
 					}
 					
 				}
 			}
 			else if (splitSentence[i].compareTo("Maximum") == 0) {
-//				System.out.println("HEREMAX " + j);
 				if (StringUtils.isNumeric(splitSentence[i + 1])) {
-//					testMax[j] = Integer.parseInt(splitSentence[i + 1]);
-//					j++;
 					max = Integer.parseInt(splitSentence[i + 1]);
 					isMaxUnit = splitSentence[i + 2].compareTo("days") == 0 || splitSentence[i + 2].compareTo("Days") == 0 || 
 							splitSentence[i + 2].compareTo("months") == 0 || splitSentence[i + 2].compareTo("Months") == 0 || 
 							splitSentence[i + 2].compareTo("years") == 0 || splitSentence[i + 2].compareTo("Years") == 0;
 					if (isMaxUnit) {
 						maxUnit = splitSentence[i + 2];
+						System.out.println("Split Max Print: " + splitSentence[i + 1] + " " + splitSentence[i + 2]);
 					}	
 				}
 			}
@@ -192,14 +189,12 @@ public class Sentence {
 								splitSentence[i + 2].compareTo("years") == 0 || splitSentence[i + 2].compareTo("Years") == 0;
 						if (isMinUnit) {
 							minUnit = splitSentence[i + 2];
+							System.out.println("Split Term Print: " + splitSentence[i + 1] + " " + splitSentence[i + 2]);
 						}	
 					}
 				}	
 			}
 		}
-//		for (int i2 = 0; i2 < testMax.length; i2++) {
-//			System.out.println("max " + i2 + ": " + testMax[i2]);
-//		}
 	}
 	
 	public static void main(String[] args) {

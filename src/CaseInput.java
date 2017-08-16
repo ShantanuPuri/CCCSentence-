@@ -13,7 +13,7 @@ public class CaseInput {
 	public void open() {
 		try {
 			// Name of input file: Change here for updated samples. Needs a file of courtnums without column header
-			s = new Scanner(new File("chargeTest.txt"));
+			s = new Scanner(new File("CCCmultipleCharges.txt"));
 		}	
 		catch (Exception E) {
 			System.out.println("File not found!");

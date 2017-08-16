@@ -73,7 +73,9 @@ public class Case {
 		for(String k : getEventsTable().getSentences().keySet()) {
 			s += getEventsTable().getSentences().get(k).getMaxSentenceText() + ";"; 
 		}
-		
+		if (s.endsWith(";;")) {
+			s = s.replace(";;", ";"); 
+		}
 		return s;
 	}
 	
@@ -84,6 +86,9 @@ public class Case {
 			s += getEventsTable().getSentences().get(k).getMinSentenceText() + ";";
 		}
 //		System.out.println("TEST: " + s);
+		if (s.endsWith(";;")) {
+			s = s.replace(";;", ";"); 
+		}
 		return s;
 	}
 	
@@ -97,7 +102,7 @@ public class Case {
 		
 	}
 	
-	public int getSentenceMin() {
+	public String getSentenceMin() {
 		int min = -1;
 		int tempMin = -2;
 		String tempMinUnit = "";
@@ -150,10 +155,10 @@ public class Case {
 			System.out.println("mintest: " + min);
 		}
 		
-		return min;	
+		return min + " " + minUnit;	
 	}
 	
-	public int getSentenceMax() {
+	public String getSentenceMax() {
 		int max = -1;
 		int tempMax = -2;
 		String tempMaxUnit = "";
@@ -207,24 +212,28 @@ public class Case {
 			System.out.println("maxtest: " + max);
 		}
 		
-		return max;	
+		return max + " " + maxUnit;	
 	}
 	
 	public String getSentenceMinUnit() {
-		String sentenceminUnit = ""; 
+		String sentenceMinUnit = ""; 
+//		String minString = min + "";
 		for(String k : getEventsTable().getSentences().keySet()) {
-			sentenceminUnit = getEventsTable().getSentences().get(k).getMinUnit(); 
+			sentenceMinUnit = getEventsTable().getSentences().get(k).getMinUnit(); 
+//			System.out.println("testMinUnit: " + sentenceMinUnit + ", " + k);
 		}
-		
-		return sentenceminUnit;	
+		System.out.println("minUnittest: " + sentenceMinUnit);
+		return sentenceMinUnit;	
 	}
 	
 	public String getSentenceMaxUnit() {
 		String sentenceMaxUnit = ""; 
+//		String maxString = max + "";
 		for(String k : getEventsTable().getSentences().keySet()) {
 			sentenceMaxUnit = getEventsTable().getSentences().get(k).getMaxUnit(); 
+//			System.out.println("testMaxUnit: " + sentenceMaxUnit + ", " + k);
 		}
-		
+		System.out.println("maxUnittest: " + sentenceMaxUnit);
 		return sentenceMaxUnit;	
 	}
 	
